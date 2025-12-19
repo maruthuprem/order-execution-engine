@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "b10a6b4f-eb77-4b0e-98d1-6d858c2de96d",
+		"name": "Order Execution Engine API",
+		"description": "Postman collection for Order Execution Engine (Fastify + WebSocket)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36142167",
+		"_collection_link": "https://prem-kumar-4341.postman.co/workspace/8bcbf307-6bf0-4857-a792-f1290e99b4bc/collection/36142167-b10a6b4f-eb77-4b0e-98d1-6d858c2de96d?action=share&source=collection_link&creator=36142167"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/health",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Execute Order - Invalid Payload",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/orders/execute",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"orders",
+						"execute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Execute Order - Valid Payload",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"symbol\": \"SOL/USDC\",\n  \"side\": \"buy\",\n  \"quantity\": 5,\n  \"price\": 100\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/orders/execute",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"orders",
+						"execute"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000"
+		}
+	]
+}
